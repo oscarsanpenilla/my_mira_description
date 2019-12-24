@@ -1,8 +1,15 @@
 <?xml version="1.0"?>
 <robot name="mira">
+    <material name="red" >
+        <color rgba="0.8 0.0 0.0 0.8"/>
+    </material>
     <material name="green" >
         <color rgba="0 0.8 0 0.8"/>
     </material>
+    <material name="blue" >
+        <color rgba="0 0.0 0.8 0.8"/>
+    </material>
+ 
     <link name="base_link">
         <visual>
         <material name="green" />
@@ -15,19 +22,53 @@
   
     <link name="roll_M1_link">
         <visual>
+            <material name="red"/>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
                 <cylinder radius="0.005" length="0.01"/>
             </geometry>
         </visual>
     </link>
-    
+    <link name="pitch_M2_link">
+        <visual>
+            <material name="green"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.005" length="0.01"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="yaw_M3_link">
+        <visual>
+            <material name="blue"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.005" length="0.01"/>
+            </geometry>
+        </visual>
+    </link>
+     
     <joint name="roll_joint" type="revolute">
         <parent link="base_link"/>
         <child link="roll_M1_link"/>
-        <origin xyz="0.0023 0 -0.0005" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 0.045" rpy="0 0 0"/>
         <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
         <axis xyz="1 0 0"/>
     </joint>
-  
+    <joint name="pitch_joint" type="revolute">
+        <parent link="roll_M1_link"/>
+        <child link="pitch_M2_link"/>
+        <origin xyz="0.0 0.0 0.045" rpy="0 0 0"/>
+        <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+   <joint name="yaw_joint" type="revolute">
+        <parent link="pitch_M2_link"/>
+        <child link="yaw_M3_link"/>
+        <origin xyz="0.0 0.0 0.055" rpy="0 0 0"/>
+        <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+   
+
 </robot>
