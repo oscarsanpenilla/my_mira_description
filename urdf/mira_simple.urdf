@@ -12,6 +12,9 @@
 	<material name="grey">
 		<color rgba="0.3 0.3 0.3 0.8" />
 	</material>
+	<material name="black">
+		<color rgba="0.0 0.0 0.0 1" />
+	</material>
 	<link name="base_link">
 		<visual>
 			<material name="green" />
@@ -57,6 +60,24 @@
 			</geometry>
 		</visual>
 	</link>
+	<link name="left_eye_link">
+		<visual>
+			<material name="black" />
+			<origin rpy="0 1.571 0" xyz="0 0 0" />
+			<geometry>
+				<cylinder length="0.00525" radius="0.00525" />
+			</geometry>
+		</visual>
+	</link>
+	<link name="right_eye_link">
+		<visual>
+			<material name="black" />
+			<origin rpy="0 1.571 0" xyz="0 0 0" />
+			<geometry>
+				<cylinder length="0.00525" radius="0.00525" />
+			</geometry>
+		</visual>
+	</link>
 	<joint name="roll_joint" type="revolute">
 		<parent link="base_link" />
 		<child link="roll_M1_link" />
@@ -84,5 +105,19 @@
 		<origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
 		<limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005" />
 		<axis xyz="1 0 0" />
+	</joint>
+	<joint name="head_lefteye_joint" type="fixed">
+		<parent link="head_link" />
+		<child link="left_eye_link" />
+		<origin xyz="0.0470931 0.0271892 0.0253571" rpy="0 0 0">
+			<axis xyz="1 0 0" />
+		</origin>
+	</joint>
+	<joint name="head_righteye_joint" type="fixed">
+		<parent link="head_link" />
+		<child link="right_eye_link" />
+		<origin xyz="0.0470931 -0.0271892 0.0253571" rpy="0 0 0">
+			<axis xyz="1 0 0" />
+		</origin>
 	</joint>
 </robot>
