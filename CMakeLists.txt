@@ -208,3 +208,5 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+add_executable(remove_model_client_node src/remove_model_client.cpp)
+target_link_libraries(remove_model_client_node ${catkin_LIBRARIES})
