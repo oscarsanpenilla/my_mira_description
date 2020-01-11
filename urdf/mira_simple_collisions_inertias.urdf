@@ -60,6 +60,27 @@
 		<limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005" />
 		<axis xyz="1 0 0" />
 	</joint>
+	<link name="pitch_M2_link">
+		<visual>
+			<material name="green" />
+			<origin rpy="1.5708 0 0" xyz="0 0 0" />
+			<geometry>
+				<cylinder length="0.005" radius="0.01" />
+			</geometry>
+		</visual>
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.001" />
+			<inertia ixx="2.70833333333e-08" ixy="0" ixz="0" iyy="2.70833333333e-08" izz="5e-08" iyz="0" />
+		</inertial>
+	</link>
+	<joint name="pitch_joint" type="revolute">
+		<parent link="roll_M1_link" />
+		<child link="pitch_M2_link" />
+		<origin xyz="0.0 0.0 0.0025" rpy="0 0 0" />
+		<limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005" />
+		<axis xyz="0 1 0" />
+	</joint>
 	<gazebo reference="base_link">
 		<kp>
 			100000.0
@@ -93,5 +114,11 @@
 		<material>
 			Gazebo/Red
 		</material>
+	<gazebo reference="pitch_M2_link">
+		<kp>100000.0</kp>
+		<kd>100000.0</kd>
+		<mu1>10.0</mu1>
+		<mu2>10.0</mu2>
+		<material>Gazebo/Green</material>
 	</gazebo>
 </robot>
