@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam file='$(find my_mira_description)/config/mira_controller.yaml' command="load" />
+    <node pkg="controller_manager" type="spawner" name="controller_spawn" output="screen" respawn="false" args="roll_joint_position_controller joint_state_controller --shutdown-timeout 3" ns="/mira" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" respawn="false" respawn_delay="0">
+        <remap from="/joint_states" to="/mira/joint_states"/>
+    </node>
+</launch>
