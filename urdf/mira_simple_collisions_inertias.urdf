@@ -117,7 +117,7 @@
 	</link>
 	<link name="head_link">
 		<visual>
-			<origin rpy="0.0 0 0" xyz="0 0 0" />
+			<origin rpy="0 0 -1.5708" xyz="0 0 0" />
 			<geometry>
 				<mesh filename="package://my_mira_description/models/mira/meshes/mira_head_v5.dae" />
 			</geometry>
@@ -132,7 +132,7 @@
 	<joint name="base_head_joint" type="fixed">
 		<parent link="yaw_M3_link" />
 		<child link="head_link" />
-		<origin xyz="0 0 0" rpy="0 0 -1.571" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
 	</joint>
 	<joint name="yaw_joint" type="continuous">
 		<parent link="pitch_M2_link" />
@@ -154,7 +154,7 @@
 	<link name="left_eye_link">
 		<visual>
 			<material name="black" />
-			<origin rpy="0 0 0" xyz="0 0 0" />
+			<origin rpy="0 1.5708 0" xyz="0 0 0" />
 			<geometry>
 				<mesh filename="package://my_mira_description/models/mira/meshes/mira_eye_v4.dae" />
 			</geometry>
@@ -168,14 +168,14 @@
 	<joint name="head_lefteye_joint" type="fixed">
 		<parent link="head_link" />
 		<child link="left_eye_link" />
-		<origin xyz="0.0095 0.057 0.0085" rpy="-1.5708 0 0">
+		<origin xyz="0.057 0.0095 0.0085" rpy="0 0 0">
 			<axis xyz="1 0 0" />
 		</origin>
 	</joint>
 	<link name="right_eye_link">
 		<visual>
 			<material name="black" />
-			<origin rpy="0 0 0" xyz="0 0 0" />
+			<origin rpy="0 1.5708 0" xyz="0 0 0" />
 			<geometry>
 				<mesh filename="package://my_mira_description/models/mira/meshes/mira_eye_v4.dae" />
 			</geometry>
@@ -189,14 +189,14 @@
 	<joint name="head_righteye_joint" type="fixed">
 		<parent link="head_link" />
 		<child link="right_eye_link" />
-		<origin xyz="-0.0095 0.057 0.0085" rpy="-1.5708 0 0">
-			<axis xyz="1 0 0" />
+		<origin xyz="0.057 -0.0095 0.0085" rpy="0 0 0">
+			<axis xyz="0 0 0" />
 		</origin>
 	</joint>
 	<link name="camera_link">
 		<visual>
 			<material name="black" />
-			<origin rpy="0 1.571 0" xyz="0 0 0" />
+			<origin rpy="0 0 0" xyz="0 0 0" />
 			<geometry>
 				<box size="0.0005 0.0005 0.0005" />
 			</geometry>
@@ -210,7 +210,7 @@
 	<joint name="head_camera_joint" type="fixed">
 		<parent link="head_link" />
 		<child link="camera_link" />
-		<origin xyz="0.0424264 0 0.0424264" rpy="0 0 0">
+		<origin xyz="0.056507 0 0.0255139" rpy="0 0 0">
 			<axis xyz="1 0 0" />
 		</origin>
 	</joint>
@@ -280,7 +280,7 @@
         <sensor type="camera" name="camera1">
             <update_rate>15.0</update_rate>
             <camera name="head">
-                <pose>0 0 0 0 0 1.57</pose>
+                <pose>0 0 0 0 0 0</pose>
                 <horizontal_fov>1.3962634</horizontal_fov>
                 <image>
                     <width>400</width>
