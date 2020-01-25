@@ -154,7 +154,7 @@
 	<link name="left_eye_link">
 		<visual>
 			<material name="black" />
-			<origin rpy="0 1.571 0" xyz="0 0 0" />
+			<origin rpy="0 0 0" xyz="0 0 0" />
 			<geometry>
 				<mesh filename="package://my_mira_description/models/mira/meshes/mira_eye_v4.dae" />
 			</geometry>
@@ -175,7 +175,7 @@
 	<link name="right_eye_link">
 		<visual>
 			<material name="black" />
-			<origin rpy="0 1.571 0" xyz="0 0 0" />
+			<origin rpy="0 0 0" xyz="0 0 0" />
 			<geometry>
 				<mesh filename="package://my_mira_description/models/mira/meshes/mira_eye_v4.dae" />
 			</geometry>
