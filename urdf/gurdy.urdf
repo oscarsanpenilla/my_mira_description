@@ -32,35 +32,35 @@
             <material name="red"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.04" radius="0.05"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_head_v2.dae" />
             </geometry>
         </visual>
     </link>
     <joint name="base_head_joint" type="fixed">
         <parent link="base_link" />
         <child link="head_link" />
-        <origin xyz="0.0 0.0 0.025" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 0.005" rpy="0 0 0" />
     </joint>
     <link name="upper_leg_M1_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 0.004 -0.058" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0025"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
     <joint name="head_upper_leg_M1" type="fixed">
         <parent link="head_link" />
         <child link="upper_leg_M1_link" />
-        <origin xyz="0.026 0.0125 -0.02" rpy="0 0 0" />
+        <origin xyz="0.02165 -0.01250 -0.01" rpy="0 0 -0.5235" />
     </joint>
     <link name="lower_leg_M1_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0015"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
@@ -81,40 +81,40 @@
     <joint name="lower_leg_M1_foot_M1" type="fixed">
         <parent link="lower_leg_M1_link" />
         <child link="foot_M1" />
-        <origin xyz="0.0 0.0 -0.064" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 -0.060" rpy="0 0 0" />
     </joint>
     <link name="upper_leg_M2_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 -0.006 -0.058" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0025"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
     <joint name="head_upper_leg_M2" type="fixed">
         <parent link="head_link" />
         <child link="upper_leg_M2_link" />
-        <origin xyz="-0.026 0.0125 -0.02" rpy="0 0 0" />
+        <origin xyz="-0.0225 -0.0105 -0.01" rpy="0 0 0.5235" />
     </joint>
     <link name="lower_leg_M2_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0015"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
     <joint name="upper_leg_M2_lower_leg_M2" type="fixed">
         <parent link="upper_leg_M2_link" />
         <child link="lower_leg_M2_link" />
-        <origin xyz="0.0 0.0 -0.06" rpy="0 0 0" />
+        <origin xyz="0.0 -0.01 -0.06" rpy="0 0 0" />
     </joint>
     <link name="foot_M2">
         <visual>
             <material name="green"/>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <sphere radius="0.008"/>
             </geometry>
@@ -123,28 +123,28 @@
     <joint name="lower_leg_M2_foot_M2" type="fixed">
         <parent link="lower_leg_M2_link" />
         <child link="foot_M2" />
-        <origin xyz="0.0 0.0 -0.064" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 -0.06" rpy="0 0 0" />
     </joint>
     <link name="upper_leg_M3_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 0.0045 -0.058" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0025"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
     <joint name="head_upper_leg_M3" type="fixed">
         <parent link="head_link" />
         <child link="upper_leg_M3_link" />
-        <origin xyz="0.0 -0.020 -0.02" rpy="0 0 0" />
+        <origin xyz="0.0 0.025 -0.01" rpy="0 0 1.57079" />
     </joint>
     <link name="lower_leg_M3_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.06" radius="0.0015"/>
+                <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
@@ -165,6 +165,6 @@
     <joint name="lower_leg_M3_foot_M3" type="fixed">
         <parent link="lower_leg_M3_link" />
         <child link="foot_M3" />
-        <origin xyz="0.0 0.0 -0.064" rpy="0 0 0" />
+        <origin xyz="0.0 0.0 -0.06" rpy="0 0 0" />
     </joint>
 </robot>
