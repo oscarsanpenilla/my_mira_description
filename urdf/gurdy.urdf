@@ -44,30 +44,34 @@
     <link name="upper_leg_M1_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 0.004 -0.058" rpy="0 0 0"/>
+            <origin xyz="0 0.0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="head_upper_leg_M1" type="fixed">
+    <joint name="head_upper_leg_M1" type="revolute">
         <parent link="head_link" />
         <child link="upper_leg_M1_link" />
-        <origin xyz="0.02165 -0.01250 -0.01" rpy="0 0 -0.5235" />
+        <origin xyz="0.02365 -0.0090359 -0.008" rpy="0 0 -0.5235" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="lower_leg_M1_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
+            <origin xyz="0 0.0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="upper_leg_M1_lower_leg_M1" type="fixed">
+    <joint name="upper_leg_M1_lower_leg_M1" type="revolute">
         <parent link="upper_leg_M1_link" />
         <child link="lower_leg_M1_link" />
-        <origin xyz="0.0 0.0 -0.06" rpy="0 0 0" />
+        <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M1">
         <visual>
@@ -86,30 +90,34 @@
     <link name="upper_leg_M2_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 -0.006 -0.058" rpy="0 0 0"/>
+            <origin xyz="0 -0.0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="head_upper_leg_M2" type="fixed">
+    <joint name="head_upper_leg_M2" type="revolute">
         <parent link="head_link" />
         <child link="upper_leg_M2_link" />
-        <origin xyz="-0.0225 -0.0105 -0.01" rpy="0 0 0.5235" />
+        <origin xyz="-0.0195 -0.01569 -0.008" rpy="0 0 0.5235" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="lower_leg_M2_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
+            <origin xyz="0 0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="upper_leg_M2_lower_leg_M2" type="fixed">
+    <joint name="upper_leg_M2_lower_leg_M2" type="revolute">
         <parent link="upper_leg_M2_link" />
         <child link="lower_leg_M2_link" />
-        <origin xyz="0.0 -0.01 -0.06" rpy="0 0 0" />
+        <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M2">
         <visual>
@@ -128,30 +136,34 @@
     <link name="upper_leg_M3_link">
         <visual>
             <material name="gray"/>
-            <origin xyz="0 0.0045 -0.058" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="head_upper_leg_M3" type="fixed">
+    <joint name="head_upper_leg_M3" type="revolute">
         <parent link="head_link" />
         <child link="upper_leg_M3_link" />
-        <origin xyz="0.0 0.025 -0.01" rpy="0 0 1.57079" />
+        <origin xyz="-0.004 0.025 -0.008" rpy="0 0 1.57079" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="lower_leg_M3_link">
         <visual>
             <material name="red"/>
-            <origin xyz="0 -0.0016 -0.05800" rpy="0 0 0"/>
+            <origin xyz="0 0.0 -0.06" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae" />
             </geometry>
         </visual>
     </link>
-    <joint name="upper_leg_M3_lower_leg_M3" type="fixed">
+    <joint name="upper_leg_M3_lower_leg_M3" type="revolute">
         <parent link="upper_leg_M3_link" />
         <child link="lower_leg_M3_link" />
-        <origin xyz="0.0 0.0 -0.06" rpy="0 0 0" />
+        <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
+        <limit effort="30" velocity="1.0" lower="-1.5707" upper="1.5707" />
+        <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M3">
         <visual>
