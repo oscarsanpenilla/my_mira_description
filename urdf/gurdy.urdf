@@ -65,9 +65,9 @@
     </joint>
     <link name="upper_leg_M1_link">
         <inertial>
-            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.03" rpy="0 0 0" />
             <mass value="0.01" />
-            <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05" />
+            <inertia ixx="2.10583333333e-06" ixy="0.0" ixz="0.0" iyy="2.10583333333e-06" iyz="0.0" izz="4.5e-08" />
         </inertial>
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 -0.03" />
@@ -122,9 +122,9 @@
     </joint>
     <link name="upper_leg_M2_link">
         <inertial>
-            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.03" rpy="0 0 0" />
             <mass value="0.01" />
-            <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05" />
+            <inertia ixx="2.10583333333e-06" ixy="0.0" ixz="0.0" iyy="2.10583333333e-06" iyz="0.0" izz="4.5e-08" />
         </inertial>
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 -0.03" />
@@ -179,9 +179,9 @@
     </joint>
     <link name="upper_leg_M3_link">
         <inertial>
-            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <origin xyz="0 0 -0.03" rpy="0 0 0" />
             <mass value="0.01" />
-            <inertia ixx="7.58333333333e-06" ixy="0.0" ixz="0.0" iyy="7.58333333333e-06" iyz="0.0" izz="1.25e-05" />
+            <inertia ixx="2.10583333333e-06" ixy="0.0" ixz="0.0" iyy="2.10583333333e-06" iyz="0.0" izz="4.5e-08" />
         </inertial>
         <collision>
             <origin rpy="0.0 0 0" xyz="0 0 -0.03" />
