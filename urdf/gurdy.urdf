@@ -118,6 +118,17 @@
         <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M1">
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="2.56e-07" ixy="0.0" ixz="0.0" iyy="2.56e-07" iyz="0.0" izz="2.56e-07" />
+        </inertial>
+        <collision>
+            <origin rpy="0.0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.008"/>
+            </geometry>
+        </collision>
         <visual>
             <material name="blue"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -186,6 +197,17 @@
         <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M2">
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="2.56e-07" ixy="0.0" ixz="0.0" iyy="2.56e-07" iyz="0.0" izz="2.56e-07" />
+        </inertial>
+        <collision>
+            <origin rpy="0.0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.008"/>
+            </geometry>
+        </collision>
         <visual>
             <material name="green"/>
             <origin xyz="0 0.0 0.0" rpy="0 0 0"/>
@@ -254,6 +276,17 @@
         <axis xyz="0 1 0" />
     </joint>
     <link name="foot_M3">
+        <inertial>
+            <origin xyz="0 0 0.0" rpy="0 0 0" />
+            <mass value="0.01" />
+            <inertia ixx="2.56e-07" ixy="0.0" ixz="0.0" iyy="2.56e-07" iyz="0.0" izz="2.56e-07" />
+        </inertial>
+        <collision>
+            <origin rpy="0.0 0 0" xyz="0 0 0" />
+            <geometry>
+                <sphere radius="0.008"/>
+            </geometry>
+        </collision>
         <visual>
             <material name="pink"/>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -322,5 +355,26 @@
         <mu1>10.0</mu1>
         <mu2>10.0</mu2>
         <material>Gazebo/White</material>
+    </gazebo>
+    <gazebo reference="foot_M1">
+        <kp>10000.0</kp>
+        <kd>10000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="foot_M2">
+        <kp>10000.0</kp>
+        <kd>10000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+    <gazebo reference="foot_M3">
+        <kp>10000.0</kp>
+        <kd>10000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Yellow</material>
     </gazebo>
 </robot>
