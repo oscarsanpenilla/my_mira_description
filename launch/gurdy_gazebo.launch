@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
+    <rosparam file="$(find my_mira_description)/config/gurdy_controller.yaml" command="load"/>
+    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false" output="screen" ns="/gurdy" 
+          args="head_upper_leg_M1_controller upper_leg_M1_lower_leg_M1_controller 
+                head_upper_leg_M2_controller upper_leg_M2_lower_leg_M2_controller 
+                head_upper_leg_M3_controller upper_leg_M3_lower_leg_M3_controller 
+                joint_state_controller --shutdown-timeout 3"/>
     <include file="$(find my_mira_description)/launch/spawn_gazebo.launch">
         <arg name="x" value="0.0" />
         <arg name="y" value="0.0" />
