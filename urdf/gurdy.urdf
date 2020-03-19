@@ -18,6 +18,7 @@
     <material name="pink">
         <color rgba="0.254 0.127 0.156 1" />
     </material>
+    <link name="world"/>
     <link name="base_link">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -38,6 +39,10 @@
             </geometry>
         </visual>
     </link>
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
     <link name="head_link">
         <inertial>
             <origin xyz="0 0 0.02" rpy="0 0 0" />
