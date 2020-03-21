@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gurdy">
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 0.8" />
+  </material>
+  <material name="black">
+    <color rgba="1 1 1 0.8" />
+  </material>
+  <material name="gray">
+    <color rgba="0.3 0.3 0.3 1" />
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 1" />
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1" />
+  </material>
+  <material name="pink">
+    <color rgba="0.254 0.127 0.156 1" />
+  </material>
+
+  <xacro:property name="negligible_mass" value="0.001" />
+
+  <xacro:property name="base_mass" value="0.001" />
+  <xacro:property name="base_dim_x" value="0.01" />
+  <xacro:property name="base_dim_y" value="0.01" />
+  <xacro:property name="base_dim_z" value="0.01" />
+  <xacro:property name="head_mass" value="0.01" />
+  <xacro:property name="head_dim_radius" value="0.05" />
+  <xacro:property name="head_dim_lenght" value="0.04" />
+
+
+  <xacro:macro name="default_origin">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:macro>
+  <xacro:macro name="box_inertial" params="m w d h *origin">
+    <inertial>
+      <xacro:insert_block name="origin"/>
+      <mass value="${m}" />
+      <inertia ixx="${(m/12.0)*(h*h+d*d)}" ixy="0.0" ixz="0.0" iyy="${(m/12.0)*(w*w+d*d)}" iyz="0.0" izz="${(m/12.0)*(w*w+h*h)}"/>
+    </inertial>
+  </xacro:macro>
+  <xacro:macro name="cylinder_inertial" params="m r l *origin">
+    <inertial>
+      <xacro:insert_block name="origin"/>
+      <mass value="${m}" />
+      <inertia ixx="${(m/12.0)*(3*r*r+l*l)}" ixy="0.0" ixz="0.0" iyy="${(m/12.0)*(3*r*r+l*l)}" iyz="0.0" izz="${(1/2.0)*(m*r*r)}"/>
+    </inertial>
+  </xacro:macro>
+  <xacro:macro name="box_geometry" params="x y z">
+    <geometry>
+      <box size="${x} ${y} ${z}" />
+    </geometry>
+  </xacro:macro>
+  <xacro:macro name="cylinder_geometry" params="radius lenght">
+    <geometry>
+      <cylinder radius="${radius}" length="${lenght}" />
+    </geometry>
+  </xacro:macro>
+  <xacro:macro name="mesh_geometry" params="src">
+    <geometry>
+      <mesh filename="${src}" />
+    </geometry>
+  </xacro:macro>
+
+  <link name="base_link">
+    <xacro:box_inertial m="${base_mass}" w="0" d="0" h="0">
+      <xacro:default_origin/>
+    </xacro:box_inertial>
+    <collision>
+      <xacro:default_origin/>
+      <xacro:box_geometry x="${base_dim_x}" y="${base_dim_y}" z="${base_dim_z}"/>
+    </collision>
+    <visual>
+      <material name="black"/>
+      <xacro:default_origin/>
+      <xacro:box_geometry x="${base_dim_x}" y="${base_dim_y}" z="${base_dim_z}"/>
+    </visual>
+  </link>
+  <link name="head_link">
+    <xacro:cylinder_inertial m="${head_mass}" r="${head_dim_radius}" l="${head_dim_lenght}">
+      <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+    </xacro:cylinder_inertial>
+    <collision>
+      <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+      <xacro:cylinder_geometry radius="${head_dim_radius}" lenght="${head_dim_lenght}"/>
+    </collision>
+    <visual>
+      <material name="red"/>
+      <xacro:default_origin />
+      <xacro:mesh_geometry src="package://my_mira_description/models/gurdy/meshes/gurdy_head_v2.dae"/>
+    </visual>
+  </link>
+  <joint name="base_head_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="head_link" />
+    <origin xyz="0.0 0.0 0.005" rpy="0 0 0" />
+  </joint>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/gurdy</robotNamespace>
+    </plugin >
+  </gazebo>
+  <gazebo reference="head_link">
+    <kp>10000.0</kp>
+    <kd>10000.0</kd>
+    <mu1>10.0</mu1>
+    <mu2>10.0</mu2>
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="base_link">
+    <kp>10000.0</kp>
+    <kd>10000.0</kd>
+    <mu1>10.0</mu1>
+    <mu2>10.0</mu2>
+    <material>Gazebo/Black</material>
+  </gazebo>
+</robot>
