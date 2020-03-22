@@ -169,6 +169,12 @@
   <xacro:leg_link suffix="upper_leg_M1_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
   <xacro:leg_link suffix="upper_leg_M2_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
   <xacro:leg_link suffix="upper_leg_M3_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
+  <xacro:leg_link suffix="lower_leg_M1_link" m="${lower_leg_mass}" r="${lower_leg_dim_radius}" l="${lower_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae"/>
+  <xacro:leg_link suffix="lower_leg_M2_link" m="${lower_leg_mass}" r="${lower_leg_dim_radius}" l="${lower_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae"/>
+  <xacro:leg_link suffix="lower_leg_M3_link" m="${lower_leg_mass}" r="${lower_leg_dim_radius}" l="${lower_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae"/>
+  <xacro:foot_link suffix="foot_M1" m="${foot_mass}" r="${foot_radius}" color="blue"/>
+  <xacro:foot_link suffix="foot_M2" m="${foot_mass}" r="${foot_radius}" color="green"/>
+  <xacro:foot_link suffix="foot_M3" m="${foot_mass}" r="${foot_radius}" color="red"/>
   <xacro:leg_joint suffix="head_upper_leg_M1_joint" parent="head_link" child="upper_leg_M1_link">
     <origin xyz="0.02365 -0.0090359 -0.008" rpy="0 0 -0.5235" />
   </xacro:leg_joint>
@@ -178,12 +184,18 @@
   <xacro:leg_joint suffix="head_upper_leg_M3_joint" parent="head_link" child="upper_leg_M3_link">
     <origin xyz="-0.004 0.025 -0.008" rpy="0 0 1.57079" />
   </xacro:leg_joint>
-  <xacro:leg_link suffix="lower_leg_M1_link" m="${lower_leg_mass}" r="${lower_leg_dim_radius}" l="${lower_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae"/>
   <xacro:leg_joint suffix="upper_leg_M1_lower_leg_M1_joint" parent="upper_leg_M1_link" child="lower_leg_M1_link">
     <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
   </xacro:leg_joint>
-  <xacro:foot_link suffix="foot_M1" m="${foot_mass}" r="${foot_radius}" color="blue"/>
+  <xacro:leg_joint suffix="upper_leg_M2_lower_leg_M2_joint" parent="upper_leg_M2_link" child="lower_leg_M2_link">
+    <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
+  </xacro:leg_joint>
+  <xacro:leg_joint suffix="upper_leg_M3_lower_leg_M3_joint" parent="upper_leg_M3_link" child="lower_leg_M3_link">
+    <origin xyz="0.0 -0.006 -0.06" rpy="0 0 0" />
+  </xacro:leg_joint>
   <xacro:foot_joint suffix="lower_leg_M1_foot_M1_joint" parent="lower_leg_M1_link" child="foot_M1"/>
+  <xacro:foot_joint suffix="lower_leg_M2_foot_M2_joint" parent="lower_leg_M2_link" child="foot_M2"/>
+  <xacro:foot_joint suffix="lower_leg_M3_foot_M3_joint" parent="lower_leg_M3_link" child="foot_M3"/>
 
 
   <gazebo>
@@ -207,11 +219,17 @@
     <mu2>10.0</mu2>
     <material>Gazebo/Black</material>
   </gazebo>
-  <gazebo reference="foot_M1">
-    <kp>10000.0</kp>
-    <kd>10000.0</kd>
-    <mu1>10.0</mu1>
-    <mu2>10.0</mu2>
-    <material>Gazebo/Blue</material>
-  </gazebo>
+  <xacro:macro name="gazebo_reference_foot" params="ref color">
+    <gazebo reference="${ref}">
+      <kp>10000.0</kp>
+      <kd>10000.0</kd>
+      <mu1>10.0</mu1>
+      <mu2>10.0</mu2>
+      <material>Gazebo/${color}</material>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:gazebo_reference_foot ref="foot_M1" color="Blue"/>
+  <xacro:gazebo_reference_foot ref="foot_M2" color="Green"/>
+  <xacro:gazebo_reference_foot ref="foot_M3" color="Red"/>
 </robot>
