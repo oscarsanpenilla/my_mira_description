@@ -152,7 +152,7 @@
     </xacro:cylinder_inertial>
     <collision>
       <origin rpy="0.0 0 0" xyz="0 0 0.02" />
-      <xacro:cylinder_geometry radius="${head_dim_radius}" lenght="${head_dim_lenght}"/>
+      <xacro:cylinder_geometry r="${head_dim_radius}" l="${head_dim_lenght}"/>
     </collision>
     <visual>
       <material name="red"/>
