@@ -167,8 +167,16 @@
   </joint>
 
   <xacro:leg_link suffix="upper_leg_M1_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
+  <xacro:leg_link suffix="upper_leg_M2_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
+  <xacro:leg_link suffix="upper_leg_M3_link" m="${upper_leg_mass}" r="${upper_leg_dim_radius}" l="${upper_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_higherleg_v2.dae"/>
   <xacro:leg_joint suffix="head_upper_leg_M1_joint" parent="head_link" child="upper_leg_M1_link">
     <origin xyz="0.02365 -0.0090359 -0.008" rpy="0 0 -0.5235" />
+  </xacro:leg_joint>
+  <xacro:leg_joint suffix="head_upper_leg_M2_joint" parent="head_link" child="upper_leg_M2_link">
+    <origin xyz="-0.0195 -0.01569 -0.008" rpy="0 0 0.5235" />
+  </xacro:leg_joint>
+  <xacro:leg_joint suffix="head_upper_leg_M3_joint" parent="head_link" child="upper_leg_M3_link">
+    <origin xyz="-0.004 0.025 -0.008" rpy="0 0 1.57079" />
   </xacro:leg_joint>
   <xacro:leg_link suffix="lower_leg_M1_link" m="${lower_leg_mass}" r="${lower_leg_dim_radius}" l="${lower_leg_dim_lenght}" color="gray" mesh="package://my_mira_description/models/gurdy/meshes/gurdy_lowerleg_v2.dae"/>
   <xacro:leg_joint suffix="upper_leg_M1_lower_leg_M1_joint" parent="upper_leg_M1_link" child="lower_leg_M1_link">
