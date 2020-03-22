@@ -132,6 +132,19 @@
     </joint>
   </xacro:macro>
 
+  <xacro:macro name="revolute_trans" params="trans_name type joint_name act_name hw_inter reduc">
+    <transmission name="${trans_name}">
+        <type>${type}</type>
+        <joint name="${joint_name}">
+            <hardwareInterface>${hw_inter}</hardwareInterface>
+        </joint>
+        <actuator name="${act_name}">
+            <hardwareInterface>${hw_inter}</hardwareInterface>
+            <mechanicalReduction>${reduc}</mechanicalReduction>
+        </actuator>
+    </transmission>
+  </xacro:macro>
+
   <link name="base_link">
     <xacro:box_inertial m="${base_mass}" w="0" d="0" h="0">
       <xacro:default_origin/>
@@ -196,6 +209,12 @@
   <xacro:foot_joint suffix="lower_leg_M1_foot_M1_joint" parent="lower_leg_M1_link" child="foot_M1"/>
   <xacro:foot_joint suffix="lower_leg_M2_foot_M2_joint" parent="lower_leg_M2_link" child="foot_M2"/>
   <xacro:foot_joint suffix="lower_leg_M3_foot_M3_joint" parent="lower_leg_M3_link" child="foot_M3"/>
+  <xacro:revolute_trans trans_name="trans1" type="transmission_interface/SimpleTransmission" joint_name="head_upper_leg_M1_joint" act_name="motor1" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
+  <xacro:revolute_trans trans_name="trans2" type="transmission_interface/SimpleTransmission" joint_name="upper_leg_M1_lower_leg_M1_joint" act_name="motor2" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
+  <xacro:revolute_trans trans_name="trans3" type="transmission_interface/SimpleTransmission" joint_name="head_upper_leg_M2_joint" act_name="motor3" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
+  <xacro:revolute_trans trans_name="trans4" type="transmission_interface/SimpleTransmission" joint_name="upper_leg_M2_lower_leg_M2_joint" act_name="motor4" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
+  <xacro:revolute_trans trans_name="trans5" type="transmission_interface/SimpleTransmission" joint_name="head_upper_leg_M3_joint" act_name="motor5" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
+  <xacro:revolute_trans trans_name="trans6" type="transmission_interface/SimpleTransmission" joint_name="upper_leg_M3_lower_leg_M3_joint" act_name="motor6" hw_inter="hardware_interface/EffortJointInterface" reduc="1"/>
 
 
   <gazebo>
